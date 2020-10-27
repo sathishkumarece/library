@@ -1,0 +1,29 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "To manage the books and users in the library",
+  "main": "index.js",
+  "scripts": {
+    "dev-server": "nodemon index.js",
+    "test": "mocha test/**/*-test.js"
+  },
+  "keywords": [
+    "Library",
+    "book"
+  ],
+  "author": "Sathishkumar NATARAJ (Sathishkumarece@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^8.2.0",
+    "mongoose": "^5.10.11",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
