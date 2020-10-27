@@ -4,8 +4,9 @@
   "description": "To manage the books and users in the library",
   "main": "index.js",
   "scripts": {
-    "dev-server": "nodemon index.js",
-    "test": "mocha test/**/*-test.js"
+    "start": "node index.js",
+    "dev-server": "nodemon -r dotenv/config index.js",
+    "test": "mocha -r dotenv/config --timeout 10000 test/**/*-test.js --exit"
   },
   "keywords": [
     "Library",
@@ -20,10 +21,12 @@
     "mocha": "^8.2.0",
     "mongoose": "^5.10.11",
     "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "supertest": "^5.0.0"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "dotenv": "^8.2.0"
   }
 }
