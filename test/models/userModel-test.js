@@ -3,12 +3,6 @@ const User = require('../../models/userModel');
 const app = require('../../index');
 
 describe('User model testing', () => {
-    //Wait for the DB to be started before executing the tests
-    before(function (done) {
-        app.on("dbStarted", function(){
-            done();
-        });
-    });
 
     describe('should create User', () => {
          //require assert which was installed along with mocha
@@ -29,7 +23,7 @@ describe('User model testing', () => {
                     assert.strictEqual(user.name, 'user1'); 
                     done();
                 }).catch(err=>{
-                    assert.strictEqual(err, 'user1')
+                    done(err);
                 });
         })
     })
