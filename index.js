@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const userRouter = require('./routes/userRoute');
+const bookRouter = require('./routes/bookRoute');
 
 //Initalizing express app
 const app = express();
@@ -30,6 +31,7 @@ app.use(passport.initialize());
 require('./auth/auth');
 
 app.use('/api/user', userRouter);
+app.use('/api/books/', passport.authenticate('jwt',{session:false}), bookRouter);
 
 //Lauch the application using desired port
 const port = process.env.PORT | '8081'

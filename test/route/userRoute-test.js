@@ -3,7 +3,7 @@ const assert = require('assert');
 const app = require('../../index');
 
 
-describe('User route testing /register', () => {
+describe('User route testing', () => {
     const user_router = { name: 'user2', email: 'user2@example.com', password: 'password'};
     describe('creating user from router - success',()=>{
         it('should create user success from router', (done)=>{
@@ -40,6 +40,7 @@ describe('User route testing /register', () => {
             .expect(200)
             .end((err, res) => {
                 if(err) return done(err)
+                this.token = res.body.token;
                 assert.match(res.body.token, /Bearer/g)
                 done();
             })
