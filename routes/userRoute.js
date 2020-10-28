@@ -3,6 +3,8 @@ const Router = require('express').Router();
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 
+const passport = require('passport');
+
 //Register the user
 Router.post('/register',(req,res) =>{
     let errors = {}
@@ -42,6 +44,7 @@ Router.post('/login',(req,res) => {
                     const payload = {
                         id: user.id,
                         name: user.name,
+                        email: user.email
                       }
                       // Sign Token
                       jwt.sign(
@@ -60,6 +63,15 @@ Router.post('/login',(req,res) => {
             });
         }
     });
+})
+
+//@access - Private
+Router.get('/profile', passport.authenticate('jwt',({session:false})), (req,res)=>{
+    res.json({
+        id: req.user.id,
+        name: req.user.name,
+        email: req.user.email
+      });
 })
 
  module.exports = Router;
