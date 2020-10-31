@@ -38,7 +38,7 @@ function Book(props) {
                   <strong>Copies: </strong>
                   {props.book.copies}
                 </div>
-                <Button variant='primary'>Borrow</Button>
+                    <Button variant='primary' onClick={props.onClickProcess} disabled={props.disabled}>{props.type}</Button>
             </div>
               </Col>
           </Row>
@@ -50,6 +50,9 @@ function Book(props) {
 
 Book.propTypes = {
   books: PropTypes.object.isRequired,
+  type: PropTypes.string.isRequired,
+  disabled: PropTypes.string.isRequired,
+  onClickProcess: PropTypes.func.isRequired,
 }
 
-export default Book;
+export default Book

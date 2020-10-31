@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import {getBooks} from '../actions/booksAction'
-import {Container, Row, Col} from 'react-bootstrap' 
+import {getBooks, updateBook} from '../actions/booksAction'
+import {Container} from 'react-bootstrap' 
 
 import './AllBooks.css'
 import Book from './Book.jsx'
@@ -35,18 +35,23 @@ export class AllBooks extends Component {
         books: PropTypes.object.isRequired
     }
 
+    onClickBorrow(id){
+        const book = this.props.books.allBooks.filter(book => book._id === id)[0]
+        book.copies = book.copies - 1
+        this.props.updateBook(book)
+    }
+
     render() {
-        const {allBooks} = this.props.books;
-        console.log(allBooks);
+        const {allBooks, myBooks} = this.props.books;
         
         return (
             <React.Fragment>
             <div className='allbooks-wrapper'>
-                {allBooks.map((book) =>{
+                {allBooks.filter(book=> book.copies > 0).map((book) =>{
                    return (
                        <div className='books-padding'>
                             <Container>
-                                <Book book={book}/>
+                                <Book book={book} type="Borrow" disabled={myBooks.length>1?'disabled':''} onClickProcess= {()=> this.onClickBorrow(book._id)}/>
                             </Container>
                        </div>
                        )
@@ -62,4 +67,4 @@ const mapStateToProps = (state) => ({
     books: state.books
 })
 
-export default connect(mapStateToProps, {getBooks})(AllBooks)
+export default connect(mapStateToProps, {getBooks, updateBook})(AllBooks)

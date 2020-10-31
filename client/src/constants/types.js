@@ -1,3 +1,5 @@
 export const LOGGED_USER = 'LOGGED_USER'
 export const ERRORS = 'ERRORS'
 export const GET_BOOKS = 'GET_BOOKS'
+export const UPDATE_BOOK = 'UPDATE_BOOK'
+export const ADD_USERBOOK = 'ADD_USERBOOK'
