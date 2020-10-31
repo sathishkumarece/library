@@ -1,7 +1,7 @@
 const request = require('supertest');
 const assert = require('assert');
 const app = require('../../index');
-
+const User = require('../../models/userModel');
 
 describe('User route testing', () => {
     const user_router = { name: 'user2', email: 'user2@example.com', password: 'password'};
@@ -88,5 +88,14 @@ describe('User route testing', () => {
             })
         })
     })
-   
+    after((done)=>{
+        User.deleteMany({ name:/user+/})
+        .then((res)=>{
+            console.log(res);
+            done();
+        })
+        .catch(err=>{
+            done(err);
+        })
+    })
 })

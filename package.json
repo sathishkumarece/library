@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "dev-client": "npm start --prefix client",
     "dev-server": "nodemon -r dotenv/config index.js",
+    "dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
     "test": "mocha -r dotenv/config --timeout 10000 test/**/*-test.js --exit"
   },
   "keywords": [

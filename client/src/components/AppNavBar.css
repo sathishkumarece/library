@@ -1,0 +1,15 @@
+.navbar-wrapper{
+    color:#ffffff !important;
+}
+
+
+@media screen and (min-width:768px) {
+    .navbar-brand{
+        padding-left:8%;
+    }
+    
+    .navbar-nav{
+        padding-right:8%;
+    }
+
+}

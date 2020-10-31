@@ -19,7 +19,7 @@ describe('Book route testing', () => {
     before((done)=>{
         request(app)
             .post('/api/user/login')
-            .send({ email: 'user2@example.com', password: 'password'})
+            .send({ email: 'user1@example.com', password: 'password'})
             .expect(200)
             .end((err, res) => {
                 if(err) return done(err)

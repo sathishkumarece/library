@@ -1,0 +1,9 @@
+.book-wrapper{ 
+    text-align: left;
+    border: 1px solid rgb(233, 233, 233);
+}
+
+.book-info{
+    padding-top:10px;
+    padding-bottom:10px;
+}
