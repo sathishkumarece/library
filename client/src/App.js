@@ -10,6 +10,7 @@ import LogIn from './components/LogIn.jsx'
 import SignUp from './components/SignUp.jsx'
 import Home from './components/Home.jsx'
 import AllBooks from './components/AllBooks.jsx'
+import MyBooks from './components/MyBooks.jsx'
 
 import {loggedUser,logOut} from './actions/authAction'
 import setAuthToken from './auth/authToken'
@@ -45,7 +46,7 @@ function App() {
           <Route name="singup" component={SignUp} path='/signup' />
           <Route name="login" component={LogIn} path='/login' />
           <Route name="allbooks" component={AllBooks} path='/allbooks' />
-          {/* <Route name="myBooks" component={Login} path='/userbooks' /> */}
+          <Route name="mybooks" component={MyBooks} path='/mybooks' />
         </div>
       </BrowserRouter>
     </Provider>

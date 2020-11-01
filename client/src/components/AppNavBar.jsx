@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {logOut} from '../actions/authAction';
 import { Navbar, Nav } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 
 import './AppNavBar.css'
 
@@ -17,17 +18,17 @@ class AppNavBar extends Component {
     let fragment;
     if(this.props.auth.isAuthenticated){
       fragment = <React.Fragment>
-        <Nav.Link href='/allbooks'>AllBooks</Nav.Link>
-        <Nav.Link href='/mybooks'>MyBooks</Nav.Link>
-        <Nav.Link
-            href=""
+        <Link to='/allbooks'>AllBooks</Link>
+        <Link to='/mybooks'>MyBooks</Link>
+        <Link
+            to=""
             onClick={this.onLogoutClick.bind(this)}
-          >LogOut</Nav.Link>
+          >LogOut</Link>
       </React.Fragment>
     }else{
       fragment = <React.Fragment>
-        <Nav.Link href='/login'>LogIn</Nav.Link>
-            <Nav.Link href='/signup'>SignUp</Nav.Link>
+        <Link to='/login'>LogIn</Link>
+            <Link to='/signup'>SignUp</Link>
       </React.Fragment>
     }
 
@@ -35,7 +36,7 @@ class AppNavBar extends Component {
       <div className='navbar-wrapper'>
         <Navbar fixed='top' bg='primary' variant='dark'>
           <Navbar.Brand href='/'>Library.</Navbar.Brand>
-          <Nav className='ml-auto'>
+          <Nav className='ml-auto link-wrapper'>
             {fragment}
           </Nav>
         </Navbar>

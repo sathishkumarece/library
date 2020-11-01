@@ -1,5 +1,6 @@
 const Router = require('express').Router();
 const Book = require('../models/bookModel');
+const UserBook = require('../models/userBookModel');
 
 Router.get('/all',(req,res)=>{
     Book.find()
@@ -18,7 +19,11 @@ Router.put('/:id', (req, res)=>{
     }
     Book.findOneAndUpdate({_id: req.params.id}, req.body, (err, data)=>{
         if(err) res.status(400).json({error: 'Update failed'})
-        res.status(200).send('Book updated successfully')
+        const userBook = {book_id:req.params.id,user_id:req.user.id, copies:1}
+        UserBook.create(userBook, (err, data)=>{
+            if(err) res.status(400).json({error: 'Update failed'})
+            res.status(200).send('Book & Userbook updated successfully')
+        })
     })
 })
 

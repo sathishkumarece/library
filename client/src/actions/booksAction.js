@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {ERRORS, GET_BOOKS, UPDATE_BOOK, ADD_USERBOOK} from '../constants/types'
+import {ERRORS, GET_BOOKS, UPDATE_BOOK, ADD_USERBOOK, GET_USERBOOK, DELETE_USERBOOK} from '../constants/types'
 
 export const getBooks = () => dispatch => {
     axios.get('/api/books/all')
@@ -9,7 +9,6 @@ export const getBooks = () => dispatch => {
             payload: res.data
         })
     }).catch((err) =>{
-        console.log(err);
         dispatch({
             type: ERRORS,
             payload: err.response.data
@@ -26,7 +25,46 @@ export const updateBook = (book) => dispatch => {
         })
         dispatch({
             type: ADD_USERBOOK,
+            payload: {...book, copies:1}
+        })
+    }).catch((err) =>{
+        dispatch({
+            type: ERRORS,
+            payload: err.response.data
+        })
+    })
+}
+
+export const getMyBooks = () => dispatch => {
+    axios.get('/api/userbook/all')
+    .then((response) =>{
+        dispatch({
+            type: GET_USERBOOK,
+            payload: response.data
+        })
+    }).catch((err)=>{
+        dispatch({
+            type: ERRORS,
+            payload: err.response.data
+        })
+    })
+}
+
+export const removeMyBook = (book) => dispatch => {
+    axios.delete('/api/userbook/'+book._id)
+    .then((response) =>{
+        dispatch({
+            type: DELETE_USERBOOK,
             payload: book
+        })
+        dispatch({
+            type: UPDATE_BOOK,
+            payload: book
+        })
+    }).catch((err) => {
+        dispatch({
+            type: ERRORS,
+            payload: err.response.data
         })
     })
 }

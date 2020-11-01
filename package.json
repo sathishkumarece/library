@@ -5,10 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "install-server": "npm install",
+    "install-client": "cd client && npm install && cd ..",
     "dev-client": "npm start --prefix client",
     "dev-server": "nodemon -r dotenv/config index.js",
     "dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
-    "test": "mocha -r dotenv/config --timeout 10000 test/**/*-test.js --exit"
+    "test-server": "mocha -r dotenv/config --timeout 10000 test/**/*-test.js --exit",
+    "test-client": "npm run test --prefix client"
   },
   "keywords": [
     "Library",

@@ -51,7 +51,7 @@ function Book(props) {
 Book.propTypes = {
   books: PropTypes.object.isRequired,
   type: PropTypes.string.isRequired,
-  disabled: PropTypes.string.isRequired,
+  disabled: PropTypes.string,
   onClickProcess: PropTypes.func.isRequired,
 }
 
