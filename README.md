@@ -31,5 +31,6 @@ Mongoose
 MongoDB
 
 ## Assumptions
-For some of the actions, considered only postive results
-
+1. For some of the actions, considered only postive results
+2. Actions without relevant message. Ex: Book added to user cart but no message alerts the user
+3. Tooltip to indicate the reason behind button disabled
