@@ -6,7 +6,7 @@
 
 .home-screen .row{
     position: absolute;
-    top: 40%;
+    top: 30%;
 }
 
 .title{
@@ -27,16 +27,32 @@
     /* z-index: 10; */
 }
 
+.lib-img{
+    height: 200px;
+    width: 50%;
+}
+
 @media screen and (max-width:768px){
     .home-screen .row{
         position: absolute;
-        top: 30%;
+        top: 20%;
     }
 
     .home-screen::before{
-        background:linear-gradient( rgb(0, 123, 255,1), rgb(0, 123, 255, 1));
-        height: 95%;
-        width: 100%;
-        transform: skewX(-35deg);
+        background:linear-gradient( rgb(0, 123, 255,1), rgb(0, 123, 255, 0.8));
+        height: 75%;
+        width: 90vw;
+        left: 23px;
+        top: 10px;
+        transform: skewY(15deg);
+    }
+
+    .lib-img{
+        height: 60%;
+        width: 70%;
+    }
+
+    .title{
+        font-size: 30px;
     }
 }
