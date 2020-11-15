@@ -35,6 +35,12 @@ app.use('/api/user', userRouter);
 app.use('/api/books/', passport.authenticate('jwt',{session:false}), bookRouter);
 app.use('/api/userbook/', passport.authenticate('jwt',{session:false}), userBookRouter);
 
+
+if(process.env.NODE_ENV ==='production'){
+    const path = require('path');
+    app.use(express.static(path.join(__dirname, 'client', 'build')))
+}
+
 //Lauch the application using desired port
 const port = process.env.PORT | '8081'
 app.listen(port, ()=>{
