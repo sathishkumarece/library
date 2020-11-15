@@ -1,5 +1,5 @@
 .signup-wrapper{
-    margin-top:60px;
+    margin-top:55px;
     text-align: left;
     /* width: 20% */
     justify-content: center;
@@ -12,4 +12,70 @@
 
 .hidden{
     display: none;
+}
+
+.form-wrapper {
+    margin-top: calc(30% - 70px);
+}
+
+.signup-heading{
+    color: #007bff;
+    text-align: center;
+}
+
+.signup-wrapper::before{
+    content: '';
+    position: absolute;
+    display: block;
+    height: calc(100% - 55px);
+    width: 50%;
+    background:linear-gradient( rgb(0, 123, 255,1), rgb(0, 200, 255, 0.8));
+    z-index: -1;
+    animation: wrapperSignup 0.5s ease-out forwards;
+}
+
+@keyframes wrapperSignup {
+    from {
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(100%);
+    }
+}
+
+#invite{
+    animation: movement 2.5s linear infinite;
+    transform-origin: bottom;
+    transform-box: fill-box;
+}
+
+@keyframes movement{
+    0%, 50%, 100%{ 
+        transform: rotateZ(0deg);
+    }
+    25%{ 
+        transform: rotateZ(5deg)
+    }
+    75%{ 
+        transform: rotateZ(-5deg)
+    }
+}
+
+@media screen and (min-width:768px){
+    form .form-group{
+        width: 100%;
+    }
+    .circle3{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: #33d2ff;
+        clip-path: circle(80px at left 100%);
+        z-index: -2;
+    }
+    .form-wrapper{
+        margin-left: 40px
+    }
 }
