@@ -1,4 +1,5 @@
 # library
+[![CodeFactor](https://www.codefactor.io/repository/github/sathishkumarece/library/badge)](https://www.codefactor.io/repository/github/sathishkumarece/library)
 
 ## Project setup
 
