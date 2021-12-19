@@ -19,9 +19,11 @@ Router.put('/:id', (req, res)=>{
     }
     Book.findOneAndUpdate({_id: req.params.id}, req.body, (err, data)=>{
         if(err) res.status(400).json({error: 'Update failed'})
-        const userBook = {book_id:req.params.id,user_id:req.user.id, copies:1}
+        const userBook = {book_id:req.params.id,user_id:req.user.id, copies:1};
+        console.log(data);
         UserBook.create(userBook, (err, data)=>{
             if(err) res.status(400).json({error: 'Update failed'})
+            console.log(data);
             res.status(200).send('Book & Userbook updated successfully')
         })
     })

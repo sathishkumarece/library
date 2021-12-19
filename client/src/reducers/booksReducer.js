@@ -5,7 +5,7 @@ const initialState = {
     myBooks: []
 }
 
-export default (state=initialState, action) =>{
+const booksReducer = (state=initialState, action) =>{
     switch(action.type){
         case GET_BOOKS:
             return {
@@ -53,3 +53,5 @@ export default (state=initialState, action) =>{
             return state
     }
 }
+
+export default booksReducer;

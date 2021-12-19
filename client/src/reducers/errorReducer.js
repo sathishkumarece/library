@@ -1,6 +1,6 @@
 import {ERRORS} from '../constants/types';
 
-export default (state={}, action) => {
+const errorReducer = (state={}, action) => {
     switch(action.type){
         case ERRORS:
             return action.payload
@@ -8,3 +8,5 @@ export default (state={}, action) => {
             return state
     }
 }
+
+export default errorReducer;

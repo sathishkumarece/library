@@ -1,6 +1,6 @@
 const assert = require('assert');
 const User = require('../../models/userModel');
-const app = require('../../index');
+// const app = require('../../index');
 
 describe('User model testing', () => {
 

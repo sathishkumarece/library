@@ -13,6 +13,7 @@ describe('User route testing', () => {
            .expect(200)
            .end((err, res) => {
             if (err) return done(err);
+            console.log(res);
             done();
           });
         })
